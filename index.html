@@ -504,7 +504,9 @@
     function screenshotUrl(url){
       const safe = normalizeUrl(url);
       if(safe === "#") return "";
-      return "https://image.thum.io/get/width/900/crop/520/noanimate/" + encodeURIComponent(safe);
+      // Thum.io: anteprima automatica usando il link del sito.
+      // Non codificare l'URL: Thum.io lavora meglio con l'indirizzo completo.
+      return "https://image.thum.io/get/width/900/crop/520/noanimate/" + safe;
     }
 
     function renderWorks(works){
@@ -518,9 +520,9 @@
 
         const preview = live
           ? `<div class="work-preview">
-              <img src="${previewUrl}" alt="Anteprima ${escapeHtml(work.title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+              <img src="${previewUrl}" alt="Anteprima ${escapeHtml(work.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
               <div class="work-preview-empty" style="display:none">${initials(work.title)}</div>
-              <span class="preview-label">AUTO PREVIEW</span>
+              <span class="preview-label">THUM.IO PREVIEW</span>
             </div>`
           : `<div class="work-preview"><div class="work-preview-empty">${initials(work.title)}</div></div>`;
 
