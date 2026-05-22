@@ -31,13 +31,13 @@
   },
   {
     "title": "Reggio Experience Tour",
-    "url": "http://www.reggioexperiencetour.netlify.app",
+    "url": "http://reggioexperiencetour.netlify.app",
     "tag": "Website",
     "description": "Sito completo"
   },
   {
-    "title": "Reggio Experience Tour",
-    "url": "http://www.ordiniius.netlify.app",
+    "title": "Ordini IUS",
+    "url": "http://ordiniius.netlify.app",
     "tag": "WebApp",
     "description": "WebApp per gestione ordini e database"
   }
