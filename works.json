@@ -1,0 +1,45 @@
+[
+  {
+    "title": "DARB Design",
+    "url": "https://darbdesign.netlify.app/",
+    "tag": "Portfolio",
+    "description": "Portfolio personale e identità digitale."
+  },
+  {
+    "title": "Casa de Moja",
+    "url": "https://casademoja.netlify.app/",
+    "tag": "Website",
+    "description": "Sito vetrina con fotografia, atmosfera e presenza premium."
+  },
+  {
+    "title": "F.lli Dattola Serramenti",
+    "url": "http://www.infissidattola.com",
+    "tag": "Website",
+    "description": "Sito completo con gestione card da database"
+  }
+{
+    "title": "La Nostra Arte",
+    "url": "http://www.lanostraarte.com",
+    "tag": "Website",
+    "description": "Sito vetrina con gestione card da database"
+  }
+{
+    "title": "Soluzione Digitale",
+    "url": "http://www.soluzionedigitale.netlify.app",
+    "tag": "Website",
+    "description": "Sito completo"
+  }
+{
+    "title": "Reggio Experience Tour",
+    "url": "http://www.reggioexperiencetour.netlify.app",
+    "tag": "Website",
+    "description": "Sito completo"
+  }
+{
+    "title": "Reggio Experience Tour",
+    "url": "http://www.ordiniius.netlify.app",
+    "tag": "WebApp",
+    "description": "WebApp per gestione ordini e database"
+  }
+]
+
