@@ -1,39 +1,38 @@
 [
   {
-    "title": "Casa de Moja",
-    "url": "https://casademoja.netlify.app/",
-    "tag": "Website",
-    "description": "Sito vetrina con fotografia, atmosfera e presenza premium."
-  },
-  {
-    "title": "F.lli Dattola Serramenti",
-    "url": "http://www.infissidattola.com",
-    "tag": "Website",
-    "description": "Sito completo con gestione card da database"
-  },
-  {
     "title": "La Nostra Arte",
-    "url": "http://www.lanostraarte.com",
+    "url": "https://www.lanostraarte.com",
     "tag": "Website",
-    "description": "Sito vetrina con gestione card da database"
+    "description": "Sito web dedicato ad arte, identità visiva e presenza online."
+  },
+  {
+    "title": "Infissi Dattola",
+    "url": "https://www.infissidattola.com",
+    "tag": "Website",
+    "description": "Sito professionale per infissi, prodotti e servizi aziendali."
+  },
+  {
+    "title": "Casa de Moja",
+    "url": "https://casademoja.netlify.app",
+    "tag": "Website",
+    "description": "Sito vetrina con atmosfera premium e contenuti fotografici."
   },
   {
     "title": "Soluzione Digitale",
-    "url": "https://soluzionedigitale.netlify.app/",
+    "url": "https://soluzionedigitale.netlify.app",
     "tag": "Website",
-    "description": "Sito completo"
+    "description": "Sito per servizi digitali, comunicazione e soluzioni web."
   },
   {
     "title": "Reggio Experience Tour",
-    "url": "http://reggioexperiencetour.netlify.app",
+    "url": "https://reggioexperiencetour.netlify.app",
     "tag": "Website",
-    "description": "Sito completo"
+    "description": "Sito dedicato a tour, esperienze e promozione del territorio."
   },
   {
     "title": "Ordini IUS",
-    "url": "http://ordiniius.netlify.app",
-    "tag": "WebApp",
-    "description": "WebApp per gestione ordini e database"
+    "url": "https://ordiniius.netlify.app",
+    "tag": "App",
+    "description": "Applicazione web per gestione ordini e flussi operativi."
   }
 ]
-
