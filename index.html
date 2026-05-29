@@ -1504,6 +1504,52 @@
       }
     }
 
+
+    .audio-toggle{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:150;
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      border-radius:999px;
+      border:1px solid rgba(165,243,252,.22);
+      background:rgba(2,6,23,.70);
+      color:#cffafe;
+      cursor:pointer;
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 60px rgba(8,145,178,.18);
+      transition:.22s ease;
+    }
+    .audio-toggle:hover{
+      transform:translateY(-2px) scale(1.03);
+      border-color:rgba(165,243,252,.48);
+      background:rgba(165,243,252,.12);
+    }
+    .audio-toggle svg{
+      width:20px;
+      height:20px;
+      display:block;
+    }
+    .audio-toggle[data-state="off"]{
+      opacity:.72;
+      color:#94a3b8;
+    }
+    .audio-toggle .pause-icon{display:block}
+    .audio-toggle .play-icon{display:none}
+    .audio-toggle[data-state="off"] .play-icon{display:block}
+    .audio-toggle[data-state="off"] .pause-icon{display:none}
+    @media (max-width:520px){
+      .audio-toggle{
+        right:14px;
+        bottom:14px;
+        width:42px;
+        height:42px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1711,6 +1757,12 @@
   </audio>
   <div class="audio-activation" id="audioActivation"><span></span> Audio pronto al primo click</div>
 
+  <button class="audio-toggle" id="audioToggle" type="button" data-state="off" aria-label="Attiva musica" title="Musica on/off">
+    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10-6.5-10-6.5Z"></path></svg>
+    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"></path></svg>
+  </button>
+
+
   <script>
     const fallbackWorks = [
       {
@@ -1826,7 +1878,7 @@
 
     async function loadWorks(){
       try{
-        const response = await fetch("works.json?v=2026-05-29-entrance-audio-ready", { cache: "no-store" });
+        const response = await fetch("works.json?v=2026-05-29-audio-toggle", { cache: "no-store" });
         if(!response.ok) throw new Error("works.json non trovato");
         const works = await response.json();
         renderWorks(Array.isArray(works) ? works : fallbackWorks);
@@ -2115,9 +2167,11 @@
     function setupFirstClickAudio(){
       const audio = document.getElementById("bgAudio");
       const notice = document.getElementById("audioActivation");
+      const toggle = document.getElementById("audioToggle");
       if(!audio) return;
 
       let tried = false;
+      let audioAvailable = true;
 
       function showNotice(message){
         if(!notice) return;
@@ -2126,22 +2180,62 @@
         setTimeout(() => notice.classList.remove("show"), 3200);
       }
 
-      async function startAudio(){
-        if(tried) return;
-        tried = true;
+      function setToggleState(isPlaying){
+        if(!toggle) return;
+        toggle.dataset.state = isPlaying ? "on" : "off";
+        toggle.setAttribute("aria-label", isPlaying ? "Metti in pausa musica" : "Riproduci musica");
+        toggle.setAttribute("title", isPlaying ? "Pausa musica" : "Riproduci musica");
+      }
 
+      async function playAudio(showMessage = true){
         try{
           audio.volume = 0.28;
           await audio.play();
-          showNotice("Audio attivato");
+          audioAvailable = true;
+          setToggleState(true);
+          if(showMessage) showNotice("Audio attivato");
         }catch(error){
-          showNotice("Aggiungi assets/audio/imperial-march.mp3 per attivare l'audio");
+          audioAvailable = false;
+          setToggleState(false);
+          if(showMessage) showNotice("Aggiungi assets/audio/imperial-march.mp3 per attivare l'audio");
         }
+      }
 
+      function pauseAudio(showMessage = true){
+        audio.pause();
+        setToggleState(false);
+        if(showMessage && audioAvailable) showNotice("Audio in pausa");
+      }
+
+      async function startAudio(){
+        if(tried) return;
+        tried = true;
+        await playAudio(true);
         window.removeEventListener("click", startAudio);
         window.removeEventListener("touchstart", startAudio);
         window.removeEventListener("keydown", startAudio);
       }
+
+      if(toggle){
+        toggle.addEventListener("click", async event => {
+          event.stopPropagation();
+          tried = true;
+          if(audio.paused){
+            await playAudio(true);
+          }else{
+            pauseAudio(true);
+          }
+        });
+      }
+
+      audio.addEventListener("play", () => setToggleState(true));
+      audio.addEventListener("pause", () => setToggleState(false));
+      audio.addEventListener("error", () => {
+        audioAvailable = false;
+        setToggleState(false);
+      });
+
+      setToggleState(false);
 
       window.addEventListener("click", startAudio, { once:true });
       window.addEventListener("touchstart", startAudio, { once:true });
