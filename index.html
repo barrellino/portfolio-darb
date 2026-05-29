@@ -551,6 +551,959 @@
         justify-content:center;
       }
     }
+
+    .skill{
+      cursor:pointer;
+    }
+    .skill:focus-visible{
+      outline:2px solid rgba(165,243,252,.8);
+      outline-offset:4px;
+    }
+    .skill-more{
+      display:inline-flex;
+      margin-top:18px;
+      color:#cffafe;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:.04em;
+    }
+    .skill-popup{
+      position:fixed;
+      inset:0;
+      z-index:120;
+      display:grid;
+      place-items:center;
+      padding:20px;
+      background:rgba(0,0,0,.62);
+      backdrop-filter:blur(12px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .28s ease;
+    }
+    .skill-popup.show{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .skill-popup-card{
+      position:relative;
+      width:min(620px,100%);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:34px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(165,243,252,.18), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(216,180,254,.16), transparent 32%),
+        rgba(2,6,23,.92);
+      box-shadow:0 30px 130px rgba(0,0,0,.55);
+      padding:30px;
+      transform:translateY(28px) scale(.94);
+      opacity:0;
+      transition:transform .34s cubic-bezier(.2,.9,.2,1), opacity .28s ease;
+      overflow:hidden;
+    }
+    .skill-popup.show .skill-popup-card{
+      transform:translateY(0) scale(1);
+      opacity:1;
+    }
+    .skill-popup-card:before{
+      content:"";
+      position:absolute;
+      inset:auto -20% -40% -20%;
+      height:180px;
+      background:linear-gradient(90deg,rgba(165,243,252,.20),rgba(216,180,254,.16),rgba(240,171,252,.16));
+      filter:blur(40px);
+      opacity:.7;
+    }
+    .skill-popup-content{
+      position:relative;
+    }
+    .skill-popup-kicker{
+      color:#cffafe;
+      text-transform:uppercase;
+      letter-spacing:.42em;
+      font-size:12px;
+      font-weight:900;
+    }
+    .skill-popup-title{
+      margin:12px 0 16px;
+      font-size:clamp(34px,5vw,54px);
+      line-height:.95;
+      letter-spacing:-.07em;
+      font-weight:1000;
+    }
+    .skill-popup-text{
+      color:#cbd5e1;
+      font-size:17px;
+      line-height:1.7;
+      margin:0;
+    }
+    .skill-popup-list{
+      display:grid;
+      gap:10px;
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+    }
+    .skill-popup-list li{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.055);
+      border-radius:18px;
+      padding:12px 14px;
+      color:#e2e8f0;
+      line-height:1.5;
+    }
+    .skill-popup-close{
+      position:absolute;
+      right:18px;
+      top:18px;
+      width:42px;
+      height:42px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      color:white;
+      background:rgba(255,255,255,.08);
+      cursor:pointer;
+      font-size:24px;
+      line-height:1;
+      z-index:2;
+      transition:.2s ease;
+    }
+    .skill-popup-close:hover{
+      background:rgba(165,243,252,.14);
+      border-color:rgba(165,243,252,.4);
+      transform:rotate(90deg);
+    }
+    @media (max-width:520px){
+      .skill-popup-card{
+        padding:24px 18px 20px;
+        border-radius:26px;
+      }
+      .skill-popup-close{
+        right:12px;
+        top:12px;
+        width:38px;
+        height:38px;
+      }
+      .skill-popup-text{
+        font-size:15px;
+      }
+    }
+
+
+    .skills{
+      perspective:1200px;
+    }
+    .skill{
+      border-radius:28px;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025)),
+        radial-gradient(circle at 15% 0%,rgba(165,243,252,.18),transparent 34%),
+        radial-gradient(circle at 100% 95%,rgba(168,85,247,.16),transparent 36%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 18px 60px rgba(2,6,23,.22);
+      isolation:isolate;
+    }
+    .skill:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.26;
+      background:
+        linear-gradient(90deg, transparent 0 17%, rgba(165,243,252,.28) 17.4%, transparent 18% 52%, rgba(216,180,254,.20) 52.4%, transparent 53%),
+        linear-gradient(0deg, transparent 0 30%, rgba(255,255,255,.14) 30.3%, transparent 31% 72%, rgba(165,243,252,.12) 72.3%, transparent 73%);
+      background-size:92px 92px;
+      pointer-events:none;
+      mask-image:linear-gradient(135deg,black,transparent 78%);
+    }
+    .skill:hover{
+      transform:translateY(-7px) rotateX(2deg) rotateY(-2deg);
+      box-shadow:0 26px 90px rgba(8,145,178,.20), inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    .tech-icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:20px;
+      border:1px solid rgba(165,243,252,.22);
+      background:
+        radial-gradient(circle at 25% 20%,rgba(165,243,252,.24),transparent 42%),
+        rgba(2,6,23,.40);
+      color:#cffafe;
+      margin-bottom:24px;
+      box-shadow:0 18px 40px rgba(8,145,178,.14);
+    }
+    .tech-icon svg{
+      width:30px;
+      height:30px;
+      stroke:currentColor;
+    }
+    .skill .icon{
+      display:none;
+    }
+    .skill h3{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .skill h3:before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#67e8f9;
+      box-shadow:0 0 18px rgba(103,232,249,.9);
+      flex:0 0 auto;
+    }
+    .skill-more{
+      align-items:center;
+      gap:7px;
+    }
+    .skill-more:after{
+      content:"";
+      width:42px;
+      height:1px;
+      background:linear-gradient(90deg,#cffafe,transparent);
+    }
+    .skill-popup-slides{
+      margin-top:22px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:24px;
+      background:rgba(255,255,255,.045);
+      overflow:hidden;
+    }
+    .skill-slide{
+      display:none;
+      min-height:168px;
+      padding:22px;
+      background:
+        linear-gradient(135deg,rgba(165,243,252,.08),rgba(216,180,254,.05)),
+        radial-gradient(circle at 100% 0%,rgba(240,171,252,.10),transparent 38%);
+      animation:slideIn .32s ease both;
+    }
+    .skill-slide.active{
+      display:block;
+    }
+    @keyframes slideIn{
+      from{opacity:0; transform:translateX(18px)}
+      to{opacity:1; transform:translateX(0)}
+    }
+    .skill-slide h4{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.04em;
+    }
+    .skill-slide p{
+      margin:0;
+      color:#cbd5e1;
+      line-height:1.65;
+    }
+    .slide-controls{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px;
+      border-top:1px solid rgba(255,255,255,.10);
+      background:rgba(2,6,23,.28);
+    }
+    .slide-btn{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      color:white;
+      border-radius:999px;
+      padding:9px 13px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .slide-btn:hover{
+      border-color:rgba(165,243,252,.4);
+      background:rgba(165,243,252,.12);
+    }
+    .slide-dots{
+      display:flex;
+      gap:7px;
+      align-items:center;
+      justify-content:center;
+    }
+    .slide-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      border:0;
+      background:rgba(255,255,255,.25);
+      cursor:pointer;
+      padding:0;
+    }
+    .slide-dot.active{
+      width:24px;
+      background:#cffafe;
+      box-shadow:0 0 18px rgba(207,250,254,.5);
+    }
+    @media (max-width:520px){
+      .skill-slide{
+        min-height:190px;
+        padding:18px;
+      }
+      .slide-controls{
+        gap:8px;
+      }
+      .slide-btn{
+        padding:8px 10px;
+        font-size:12px;
+      }
+    }
+
+
+    .demo-video{
+      position:relative;
+      height:118px;
+      margin-bottom:16px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(165,243,252,.18);
+      background:
+        radial-gradient(circle at 15% 20%,rgba(103,232,249,.24),transparent 30%),
+        radial-gradient(circle at 88% 70%,rgba(216,180,254,.20),transparent 34%),
+        linear-gradient(135deg,rgba(2,6,23,.95),rgba(15,23,42,.85));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 18px 50px rgba(8,145,178,.12);
+      isolation:isolate;
+    }
+    .demo-video:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size:22px 22px;
+      opacity:.36;
+      animation:demoGrid 4.8s linear infinite;
+    }
+    .demo-video:after{
+      content:"";
+      position:absolute;
+      left:-35%;
+      top:0;
+      width:30%;
+      height:100%;
+      background:linear-gradient(90deg,transparent,rgba(165,243,252,.28),transparent);
+      transform:skewX(-18deg);
+      animation:demoScan 2.8s ease-in-out infinite;
+    }
+    @keyframes demoGrid{
+      to{background-position:44px 22px, 22px 44px}
+    }
+    @keyframes demoScan{
+      0%{left:-35%; opacity:0}
+      18%{opacity:1}
+      65%{opacity:.85}
+      100%{left:110%; opacity:0}
+    }
+    .demo-node{
+      position:absolute;
+      width:12px;
+      height:12px;
+      border-radius:999px;
+      background:#67e8f9;
+      box-shadow:0 0 24px rgba(103,232,249,.95);
+      z-index:2;
+      animation:nodePulse 1.8s ease-in-out infinite;
+    }
+    .demo-node.n1{left:18%;top:28%;animation-delay:.1s}
+    .demo-node.n2{left:48%;top:58%;animation-delay:.45s}
+    .demo-node.n3{left:75%;top:32%;animation-delay:.8s}
+    @keyframes nodePulse{
+      0%,100%{transform:scale(.85);opacity:.65}
+      50%{transform:scale(1.25);opacity:1}
+    }
+    .demo-line{
+      position:absolute;
+      height:2px;
+      transform-origin:left center;
+      background:linear-gradient(90deg,rgba(103,232,249,.9),rgba(216,180,254,.35),transparent);
+      z-index:1;
+      opacity:.85;
+    }
+    .demo-line.l1{left:20%;top:34%;width:34%;transform:rotate(22deg)}
+    .demo-line.l2{left:50%;top:61%;width:29%;transform:rotate(-31deg)}
+    .demo-card-mini{
+      position:absolute;
+      right:14px;
+      bottom:13px;
+      width:104px;
+      height:54px;
+      border-radius:13px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+      z-index:2;
+      overflow:hidden;
+    }
+    .demo-card-mini span{
+      display:block;
+      height:6px;
+      margin:9px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.22);
+      animation:barMove 1.8s ease-in-out infinite;
+    }
+    .demo-card-mini span:nth-child(2){width:70%;animation-delay:.2s}
+    .demo-card-mini span:nth-child(3){width:48%;animation-delay:.4s}
+    @keyframes barMove{
+      0%,100%{opacity:.35; transform:translateX(0)}
+      50%{opacity:1; transform:translateX(6px)}
+    }
+    .demo-play{
+      position:absolute;
+      left:14px;
+      bottom:12px;
+      z-index:3;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(2,6,23,.62);
+      color:#cffafe;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:11px;
+      font-weight:900;
+      backdrop-filter:blur(12px);
+    }
+    .demo-play i{
+      width:0;
+      height:0;
+      border-top:5px solid transparent;
+      border-bottom:5px solid transparent;
+      border-left:8px solid currentColor;
+      display:block;
+    }
+    .demo-video.visual .demo-card-mini{background:rgba(240,171,252,.10)}
+    .demo-video.video .demo-node{background:#f0abfc;box-shadow:0 0 24px rgba(240,171,252,.85)}
+    .demo-video.hardware .demo-node{background:#86efac;box-shadow:0 0 24px rgba(134,239,172,.85)}
+    .demo-video.web .demo-card-mini{right:50%;transform:translateX(50%);width:140px}
+    .demo-video.systems .demo-line{background:linear-gradient(90deg,rgba(134,239,172,.9),rgba(165,243,252,.45),transparent)}
+    .demo-video.english .demo-card-mini span:nth-child(1){width:45%}
+    .demo-video.english .demo-card-mini span:nth-child(2){width:80%}
+    @media (max-width:520px){
+      .demo-video{
+        height:96px;
+      }
+      .demo-card-mini{
+        width:86px;
+        height:46px;
+      }
+      .demo-play{
+        font-size:10px;
+        padding:6px 8px;
+      }
+    }
+
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .review-card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:24px;
+      min-height:250px;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.025)),
+        radial-gradient(circle at 12% 0%,rgba(165,243,252,.16),transparent 34%),
+        radial-gradient(circle at 100% 100%,rgba(168,85,247,.15),transparent 36%);
+      backdrop-filter:blur(22px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 20px 70px rgba(2,6,23,.24);
+    }
+    .review-card:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:.22;
+      background:
+        linear-gradient(90deg,transparent 0 20%,rgba(165,243,252,.22) 20.4%,transparent 21% 58%,rgba(216,180,254,.18) 58.4%,transparent 59%),
+        linear-gradient(0deg,transparent 0 28%,rgba(255,255,255,.14) 28.3%,transparent 29% 70%,rgba(165,243,252,.12) 70.3%,transparent 71%);
+      background-size:80px 80px;
+      pointer-events:none;
+    }
+    .review-card:after{
+      content:"";
+      position:absolute;
+      left:-40%;
+      top:0;
+      width:32%;
+      height:100%;
+      background:linear-gradient(90deg,transparent,rgba(165,243,252,.16),transparent);
+      transform:skewX(-18deg);
+      animation:reviewScan 5.5s ease-in-out infinite;
+    }
+    @keyframes reviewScan{
+      0%{left:-45%;opacity:0}
+      20%{opacity:1}
+      70%{opacity:.7}
+      100%{left:120%;opacity:0}
+    }
+    .review-top{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:22px;
+    }
+    .review-avatar{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      border:1px solid rgba(165,243,252,.24);
+      background:
+        radial-gradient(circle at 25% 20%,rgba(165,243,252,.28),transparent 42%),
+        rgba(2,6,23,.45);
+      color:#cffafe;
+      font-weight:1000;
+      box-shadow:0 18px 40px rgba(8,145,178,.14);
+    }
+    .review-stars{
+      color:#fde68a;
+      letter-spacing:.15em;
+      font-size:13px;
+      text-shadow:0 0 18px rgba(253,230,138,.35);
+    }
+    .review-card blockquote{
+      position:relative;
+      margin:0;
+      color:#dbeafe;
+      line-height:1.65;
+      font-size:16px;
+      z-index:1;
+    }
+    .review-card blockquote:before{
+      content:"“";
+      display:block;
+      font-size:62px;
+      line-height:.6;
+      color:rgba(165,243,252,.28);
+      font-weight:1000;
+      margin-bottom:2px;
+    }
+    .review-author{
+      position:relative;
+      margin-top:22px;
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+      z-index:1;
+    }
+    .review-author strong{
+      color:white;
+      letter-spacing:-.02em;
+    }
+    .review-author span{
+      color:#94a3b8;
+      font-size:13px;
+    }
+    .footer-card.tech-footer{
+      position:relative;
+      overflow:hidden;
+      display:block;
+      text-align:center;
+      padding:28px 22px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(165,243,252,.12),transparent 28%),
+        linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      box-shadow:0 16px 48px rgba(8,145,178,.10), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .footer-card.tech-footer:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+      background-size:36px 36px;
+      opacity:.16;
+      mask-image:radial-gradient(circle at 50% 50%,black,transparent 82%);
+    }
+    .footer-card.tech-footer:after{
+      content:"";
+      position:absolute;
+      inset:auto 18% 0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(207,250,254,.9),rgba(216,180,254,.5),transparent);
+      box-shadow:0 0 20px rgba(207,250,254,.20);
+    }
+    .footer-tech-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      justify-items:center;
+      gap:10px;
+    }
+    .footer-tech-kicker{
+      color:#cbd5e1;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      font-size:10px;
+      font-weight:800;
+    }
+    .footer-tech-title{
+      font-size:clamp(24px,3.2vw,38px);
+      line-height:1;
+      letter-spacing:-.05em;
+      font-weight:1000;
+      background:linear-gradient(90deg,#e2e8f0,#cbd5e1,#ddd6fe);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .footer-tech-sub{
+      max-width:620px;
+      color:#94a3b8;
+      line-height:1.6;
+      margin:0 auto;
+      font-size:14px;
+    }
+    .footer-tech-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:4px;
+    }
+    .footer-tech-actions .btn{
+      min-height:auto;
+      padding:10px 14px;
+      font-size:13px;
+      border-radius:999px;
+    }
+    .footer-tech-sign{
+      margin-top:4px;
+      color:#64748b;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    @media (max-width:860px){
+      .footer-card.tech-footer{
+        padding:24px 16px;
+        border-radius:24px;
+      }
+      .footer-tech-title{
+        font-size:clamp(22px,8vw,32px);
+      }
+      .footer-tech-kicker{
+        letter-spacing:.18em;
+      }
+      .footer-tech-sub{
+        font-size:13px;
+      }
+    }
+
+
+    .story-frame{
+      position:relative;
+      height:170px;
+      margin-bottom:16px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(165,243,252,.18);
+      background:
+        radial-gradient(circle at 15% 20%,rgba(103,232,249,.15),transparent 30%),
+        radial-gradient(circle at 88% 70%,rgba(216,180,254,.15),transparent 34%),
+        linear-gradient(135deg,rgba(2,6,23,.95),rgba(15,23,42,.85));
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 18px 50px rgba(8,145,178,.10);
+    }
+    .story-frame:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.07), rgba(255,255,255,0) 12%, rgba(255,255,255,0) 88%, rgba(255,255,255,.06)),
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size:auto, 28px 28px, 28px 28px;
+      opacity:.16;
+      pointer-events:none;
+      z-index:1;
+    }
+    .story-frame:after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:2px;
+      left:33.333%;
+      background:linear-gradient(180deg, transparent, rgba(255,255,255,.35), transparent);
+      box-shadow:724px 0 0 rgba(255,255,255,.18);
+      opacity:.55;
+      z-index:1;
+      pointer-events:none;
+    }
+    .story-image{
+      width:300%;
+      height:100%;
+      max-width:none;
+      display:block;
+      object-fit:cover;
+      transition:transform .35s ease;
+      filter:saturate(1.02) contrast(1.03);
+    }
+    .story-frame:hover .story-image{
+      transform:scale(1.015);
+    }
+    .story-image.panel-1{
+      transform:translateX(0);
+    }
+    .story-image.panel-2{
+      transform:translateX(-33.3333%);
+    }
+    .story-image.panel-3{
+      transform:translateX(-66.6666%);
+    }
+    .story-caption{
+      position:absolute;
+      left:12px;
+      bottom:12px;
+      z-index:2;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(2,6,23,.62);
+      color:#cffafe;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.04em;
+      backdrop-filter:blur(12px);
+    }
+    .story-caption b{
+      color:white;
+      font-weight:900;
+    }
+    @media (max-width:520px){
+      .story-frame{
+        height:132px;
+      }
+      .story-caption{
+        font-size:10px;
+        padding:6px 8px;
+      }
+    }
+
+
+    .footer-card.tech-footer{
+      position:relative;
+      overflow:hidden;
+      display:block;
+      text-align:center;
+      padding:16px 18px;
+      border-radius:20px;
+      min-height:auto;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(165,243,252,.09),transparent 24%),
+        linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+      box-shadow:0 10px 34px rgba(8,145,178,.08), inset 0 1px 0 rgba(255,255,255,.07);
+    }
+    .footer-card.tech-footer:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:34px 34px;
+      opacity:.12;
+      mask-image:radial-gradient(circle at 50% 50%,black,transparent 86%);
+    }
+    .footer-card.tech-footer:after{
+      content:"";
+      position:absolute;
+      inset:auto 22% 0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(207,250,254,.65),rgba(216,180,254,.38),transparent);
+      box-shadow:0 0 14px rgba(207,250,254,.14);
+    }
+    .footer-tech-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      justify-items:center;
+      gap:6px;
+    }
+    .footer-tech-kicker{
+      color:#94a3b8;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:9px;
+      font-weight:800;
+      line-height:1.3;
+    }
+    .footer-tech-title{
+      font-size:clamp(20px,2.4vw,30px);
+      line-height:1;
+      letter-spacing:-.045em;
+      font-weight:1000;
+      background:linear-gradient(90deg,#e2e8f0,#cbd5e1,#ddd6fe);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .footer-tech-sub{
+      max-width:560px;
+      color:#94a3b8;
+      line-height:1.45;
+      margin:0 auto;
+      font-size:12px;
+    }
+    .footer-tech-actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:8px;
+      margin-top:2px;
+    }
+    .footer-tech-actions .btn{
+      min-height:auto;
+      padding:7px 11px;
+      font-size:12px;
+      border-radius:999px;
+    }
+    .footer-tech-sign{
+      margin-top:0;
+      color:#64748b;
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    @media (max-width:860px){
+      .footer-card.tech-footer{
+        padding:14px 14px;
+        border-radius:18px;
+      }
+      .footer-tech-title{
+        font-size:22px;
+      }
+      .footer-tech-kicker{
+        letter-spacing:.13em;
+      }
+      .footer-tech-sub{
+        font-size:12px;
+      }
+    }
+
+
+    .slide-autoplay{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:2px;
+      background:rgba(255,255,255,.08);
+      overflow:hidden;
+      z-index:3;
+    }
+    .slide-autoplay span{
+      display:block;
+      height:100%;
+      width:100%;
+      background:linear-gradient(90deg,#cffafe,#ddd6fe,#f0abfc);
+      transform-origin:left center;
+      animation:autoProgress 3.2s linear infinite;
+    }
+    @keyframes autoProgress{
+      from{transform:scaleX(0)}
+      to{transform:scaleX(1)}
+    }
+
+
+    .reveal-init{
+      opacity:0;
+      transform:translateY(28px) scale(.985);
+      filter:blur(8px);
+      transition:
+        opacity .78s ease,
+        transform .78s cubic-bezier(.2,.9,.2,1),
+        filter .78s ease;
+      transition-delay:var(--reveal-delay,0ms);
+      will-change:opacity, transform, filter;
+    }
+    .reveal-init.reveal-in{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      filter:blur(0);
+    }
+    .reveal-left{
+      transform:translateX(-34px) scale(.985);
+    }
+    .reveal-right{
+      transform:translateX(34px) scale(.985);
+    }
+    .reveal-left.reveal-in,
+    .reveal-right.reveal-in{
+      transform:translateX(0) scale(1);
+    }
+    .reveal-pop{
+      transform:translateY(18px) scale(.92);
+    }
+    .reveal-pop.reveal-in{
+      transform:translateY(0) scale(1);
+    }
+    .audio-activation{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform:translateX(-50%) translateY(20px);
+      z-index:140;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      border:1px solid rgba(165,243,252,.18);
+      background:rgba(2,6,23,.72);
+      color:#e2e8f0;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:12px;
+      font-weight:800;
+      backdrop-filter:blur(18px);
+      box-shadow:0 18px 60px rgba(8,145,178,.16);
+      opacity:0;
+      pointer-events:none;
+      transition:.35s ease;
+    }
+    .audio-activation.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(0);
+    }
+    .audio-activation span{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#67e8f9;
+      box-shadow:0 0 18px rgba(103,232,249,.75);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal-init{
+        opacity:1;
+        transform:none;
+        filter:none;
+        transition:none;
+      }
+      .ring,
+      .review-card:after,
+      .skill:before,
+      .demo-video:before,
+      .demo-video:after{
+        animation:none!important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -635,12 +1588,30 @@
       </div>
 
       <div class="skills">
-        <article class="skill"><div class="icon">🎨</div><h3>Visual Design</h3><p class="muted">Brand, UI, composizioni, palette, layout e identità visiva.</p></article>
-        <article class="skill"><div class="icon">🎬</div><h3>Video Making</h3><p class="muted">Ripresa, montaggio, storytelling, ritmo e contenuti social.</p></article>
-        <article class="skill"><div class="icon">🖥️</div><h3>Hardware & Tech</h3><p class="muted">Diagnosi, assemblaggio, manutenzione, reti e configurazioni.</p></article>
-        <article class="skill"><div class="icon">🌐</div><h3>Web & Digital</h3><p class="muted">Landing page, portfolio, siti vetrina e interfacce moderne.</p></article>
-        <article class="skill"><div class="icon">⚙️</div><h3>Back Office & Systems</h3><p class="muted">Intranet, workflow, gestione richieste e supervisione operativa.</p></article>
-        <article class="skill"><div class="icon">🇬🇧</div><h3>Professional English</h3><p class="muted">Comunicazione internazionale maturata vivendo all'estero.</p></article>
+        <button class="skill" type="button" data-skill="visual">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"></path><path d="M6 16l8-8 4 4-8 8H6v-4Z"></path><path d="M13 9l2 2"></path><path d="M5 5h4"></path><path d="M7 3v4"></path></svg></div>
+          <h3>Visual Design</h3><p class="muted">Brand, UI, composizioni, palette, layout e identità visiva.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
+        <button class="skill" type="button" data-skill="video">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="3"></rect><path d="M17 9l4-2v10l-4-2"></path><path d="M8 9l5 3-5 3V9Z"></path></svg></div>
+          <h3>Video Making</h3><p class="muted">Ripresa, montaggio, storytelling, ritmo e contenuti social.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
+        <button class="skill" type="button" data-skill="hardware">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M4 10h3"></path><path d="M4 14h3"></path><path d="M17 10h3"></path><path d="M17 14h3"></path><path d="M10 4v3"></path><path d="M14 4v3"></path><path d="M10 17v3"></path><path d="M14 17v3"></path></svg></div>
+          <h3>Hardware & Tech</h3><p class="muted">Diagnosi, assemblaggio, manutenzione, reti e configurazioni.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
+        <button class="skill" type="button" data-skill="web">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path><path d="M3.6 9h16.8"></path><path d="M3.6 15h16.8"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg></div>
+          <h3>Web & Digital</h3><p class="muted">Landing page, portfolio, siti vetrina e interfacce moderne.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
+        <button class="skill" type="button" data-skill="systems">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"></path><path d="M7 7v10"></path><path d="M17 7v10"></path><path d="M4 17h16"></path><path d="M10 12h4"></path><path d="M12 10v4"></path></svg></div>
+          <h3>Back Office & Systems</h3><p class="muted">Intranet, workflow, gestione richieste e supervisione operativa.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
+        <button class="skill" type="button" data-skill="english">
+          <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h10"></path><path d="M9 5v14"></path><path d="M4 19h10"></path><path d="M16 12h4"></path><path d="18 10v8"></path><path d="M16 18h4"></path></svg></div>
+          <h3>Professional English</h3><p class="muted">Comunicazione internazionale maturata vivendo all'estero.</p><span class="skill-more">Apri dettaglio</span>
+        </button>
       </div>
     </section>
 
@@ -655,13 +1626,90 @@
       <div class="works-grid" id="worksGrid"></div>
     </section>
 
+
+    <section id="reviews">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Feedback Signal</div>
+          <h2>Recensioni</h2>
+        </div>
+        <p class="muted">Una sezione dedicata alla percezione del lavoro: cura, precisione e impatto finale.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">CM</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <blockquote>Ha trasformato l'idea in una presenza online elegante, chiara e professionale. Il risultato comunica subito atmosfera e valore.</blockquote>
+          <div class="review-author">
+            <strong>Casa de Moja</strong>
+            <span>Website · identità digitale</span>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">SD</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <blockquote>Approccio tecnico e creativo insieme: interfaccia pulita, organizzazione precisa e attenzione ai dettagli che fanno la differenza.</blockquote>
+          <div class="review-author">
+            <strong>Soluzione Digitale</strong>
+            <span>Web design · struttura contenuti</span>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">RX</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <blockquote>Un lavoro dinamico, moderno e immediato da navigare. La parte visiva sostiene bene il racconto dell'esperienza.</blockquote>
+          <div class="review-author">
+            <strong>Reggio Experience Tour</strong>
+            <span>Tour · promozione territorio</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <footer>
-      <div class="footer-card">
-        <div><strong>designed by DARB</strong></div>
-        <a class="btn secondary" href="mailto:dariobarrella@gmail.com?subject=Contatto%20dal%20portfolio%20DARB">dariobarrella@gmail.com</a>
+      <div class="footer-card tech-footer">
+        <div class="footer-tech-inner">
+          <div class="footer-tech-kicker">Portfolio · Web · Design · Technology</div>
+          <div class="footer-tech-title">Designed by DARB</div>
+          <p class="footer-tech-sub">Design visivo, web e tecnologia in un’esperienza digitale essenziale e professionale.</p>
+          <div class="footer-tech-actions">
+            <a class="btn" href="mailto:dariobarrella@gmail.com?subject=Contatto%20dal%20portfolio%20DARB">Contattami</a>
+            <a class="btn secondary" href="#works">Lavori</a>
+          </div>
+          <div class="footer-tech-sign">Dario Barrella</div>
+        </div>
       </div>
     </footer>
   </div>
+
+
+  <div class="skill-popup" id="skillPopup" aria-hidden="true">
+    <div class="skill-popup-card" role="dialog" aria-modal="true" aria-labelledby="skillPopupTitle">
+      <button class="skill-popup-close" type="button" id="skillPopupClose" aria-label="Chiudi">×</button>
+      <div class="skill-popup-content">
+        <div class="skill-popup-kicker" id="skillPopupKicker">Skill detail</div>
+        <h3 class="skill-popup-title" id="skillPopupTitle"></h3>
+        <p class="skill-popup-text" id="skillPopupText"></p>
+        <ul class="skill-popup-list" id="skillPopupList"></ul>
+        <div class="skill-popup-slides" id="skillSlides"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <audio id="bgAudio" preload="auto" loop>
+    <source src="assets/audio/imperial-march.mp3" type="audio/mpeg">
+  </audio>
+  <div class="audio-activation" id="audioActivation"><span></span> Audio pronto al primo click</div>
 
   <script>
     const fallbackWorks = [
@@ -730,9 +1778,9 @@
     function screenshotUrl(url){
       const safe = normalizeUrl(url);
       if(safe === "#") return "";
-      // Thum.io: anteprima automatica usando il link del sito.
-      // Non codificare l'URL: Thum.io lavora meglio con l'indirizzo completo.
-      return "https://image.thum.io/get/width/900/crop/520/noanimate/" + safe;
+      // Thum.io con attesa di 3 secondi dopo il caricamento della pagina.
+      // Utile per siti con animazioni/loader iniziali.
+      return "https://image.thum.io/get/width/900/crop/520/wait/3/noanimate/" + safe;
     }
 
     function renderWorks(works){
@@ -748,7 +1796,7 @@
           ? `<div class="work-preview">
               <img src="${previewUrl}" alt="Anteprima ${escapeHtml(work.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
               <div class="work-preview-empty" style="display:none">${initials(work.title)}</div>
-              <span class="preview-label">THUM.IO PREVIEW</span>
+              <span class="preview-label">THUM.IO 3s</span>
             </div>`
           : `<div class="work-preview"><div class="work-preview-empty">${initials(work.title)}</div></div>`;
 
@@ -769,11 +1817,16 @@
         `;
         grid.appendChild(card);
       });
+      document.querySelectorAll(".work:not(.reveal-init)").forEach((el, index) => {
+        el.classList.add("reveal-init", "reveal-pop");
+        el.style.setProperty("--reveal-delay", Math.min(index * 55, 320) + "ms");
+        setTimeout(() => el.classList.add("reveal-in"), 80 + index * 55);
+      });
     }
 
     async function loadWorks(){
       try{
-        const response = await fetch("works.json?v=2026-05-29-preview-piccola", { cache: "no-store" });
+        const response = await fetch("works.json?v=2026-05-29-entrance-audio-ready", { cache: "no-store" });
         if(!response.ok) throw new Error("works.json non trovato");
         const works = await response.json();
         renderWorks(Array.isArray(works) ? works : fallbackWorks);
@@ -789,6 +1842,315 @@
       if(q) window.open("https://www.google.com/search?q=" + encodeURIComponent(q), "_blank", "noopener,noreferrer");
     });
 
+
+    const skillDetails = {
+      visual: {
+        kicker: "Design & identità",
+        title: "Visual Design",
+        text: "Creo identità visive pulite, moderne e coerenti, curando palette, composizione, leggibilità e impatto. L'obiettivo è trasformare un'idea in un'immagine riconoscibile e professionale.",
+        bullets: [
+          "Brand, layout, grafiche social e materiali digitali.",
+          "Uso consapevole di contrasti, gerarchie, spazi e gradienti.",
+          "Estetica professionale senza appesantire la lettura."
+        ],
+        slides: [
+          { title:"Identità visiva", text:"Definisco mood, palette, tipografia e proporzioni per costruire un'immagine coerente e riconoscibile." },
+          { title:"Gerarchia", text:"Organizzo informazioni e layout in modo che l'occhio capisca subito dove guardare e cosa ricordare." },
+          { title:"Output finale", text:"Creo visual pronti per web, social, presentazioni e materiali digitali con un look curato e moderno." }
+        ]
+      },
+      video: {
+        kicker: "Motion & storytelling",
+        title: "Video Making",
+        text: "Gestisco contenuti video con attenzione a ritmo, atmosfera, taglio e narrazione. Il montaggio non è solo tecnica: serve a guidare l'attenzione e rendere il messaggio memorabile.",
+        bullets: [
+          "Ripresa, montaggio e storytelling visivo.",
+          "Contenuti per social, portfolio, aziende e presentazioni.",
+          "Ritmo, audio, transizioni e color mood coerenti."
+        ],
+        slides: [
+          { title:"Struttura narrativa", text:"Ogni video parte da un obiettivo: catturare attenzione, spiegare, emozionare o valorizzare un brand." },
+          { title:"Ritmo e taglio", text:"Uso timing, transizioni e suono per mantenere alta la percezione professionale del contenuto." },
+          { title:"Finalizzazione", text:"Ottimizzo formato, resa visiva e leggibilità per web, social e presentazioni." }
+        ]
+      },
+      hardware: {
+        kicker: "Tecnica & problem solving",
+        title: "Hardware & Tech",
+        text: "Unisco competenze pratiche e diagnostiche per configurare, ottimizzare e risolvere problemi hardware/software. L'approccio è concreto: capire il problema, isolare la causa, trovare la soluzione.",
+        bullets: [
+          "Assemblaggio, manutenzione e troubleshooting.",
+          "Configurazione sistemi, periferiche e workflow digitali.",
+          "Ottimizzazione prestazioni e gestione problemi tecnici."
+        ],
+        slides: [
+          { title:"Diagnosi", text:"Individuo la causa reale del problema, separando sintomi software, hardware e configurazione." },
+          { title:"Configurazione", text:"Preparo sistemi, periferiche e strumenti per lavorare in modo stabile ed efficiente." },
+          { title:"Ottimizzazione", text:"Miglioro prestazioni e affidabilità con interventi pratici, misurabili e ordinati." }
+        ]
+      },
+      web: {
+        kicker: "Web presence",
+        title: "Web & Digital",
+        text: "Realizzo siti e landing page moderni, responsive e orientati alla presentazione professionale. Ogni sezione deve essere chiara, veloce e piacevole da navigare.",
+        bullets: [
+          "Siti vetrina, portfolio e landing page.",
+          "Strutture responsive per desktop, tablet e smartphone.",
+          "Interfacce con micro-animazioni e look premium."
+        ],
+        slides: [
+          { title:"Architettura", text:"Organizzo sezioni e contenuti per rendere il sito immediato, leggibile e orientato al risultato." },
+          { title:"Responsive", text:"Adatto layout, card, immagini e navigazione per desktop, tablet e smartphone." },
+          { title:"Interazione", text:"Aggiungo micro-effetti e animazioni leggere per dare movimento senza appesantire l'esperienza." }
+        ]
+      },
+      systems: {
+        kicker: "Organizzazione & flussi",
+        title: "Back Office & Systems",
+        text: "Ho esperienza nella gestione di processi digitali, richieste operative e flussi di lavoro. Questo mi permette di progettare soluzioni ordinate, pratiche e facili da mantenere.",
+        bullets: [
+          "Gestione richieste, documenti e procedure operative.",
+          "Esperienza con intranet, supervisione e workflow.",
+          "Metodo, precisione e attenzione alla continuità operativa."
+        ],
+        slides: [
+          { title:"Processi", text:"Leggo il flusso operativo e individuo punti critici, passaggi inutili e aree da semplificare." },
+          { title:"Strumenti", text:"Creo o gestisco sistemi digitali che rendono più chiara la gestione delle attività." },
+          { title:"Controllo", text:"Mantengo ordine, tracciabilità e continuità nelle procedure quotidiane." }
+        ]
+      },
+      english: {
+        kicker: "International mindset",
+        title: "Professional English",
+        text: "L'esperienza all'estero mi ha permesso di sviluppare un inglese professionale e una mentalità flessibile, utile per comunicare con clienti, team e contesti internazionali.",
+        bullets: [
+          "Comunicazione scritta e parlata in contesti professionali.",
+          "Capacità di adattare tono e messaggio al pubblico.",
+          "Apertura mentale e approccio multiculturale."
+        ],
+        slides: [
+          { title:"Comunicazione", text:"Gestisco conversazioni professionali con chiarezza, precisione e tono adatto al contesto." },
+          { title:"Adattabilità", text:"L'esperienza all'estero mi aiuta a capire pubblici diversi e a modulare il messaggio." },
+          { title:"Collaborazione", text:"Mi muovo meglio in progetti internazionali, team misti e comunicazioni digitali." }
+        ]
+      }
+    };
+
+    const skillPopup = document.getElementById("skillPopup");
+    const skillPopupTitle = document.getElementById("skillPopupTitle");
+    const skillPopupText = document.getElementById("skillPopupText");
+    const skillPopupKicker = document.getElementById("skillPopupKicker");
+    const skillPopupList = document.getElementById("skillPopupList");
+    const skillPopupClose = document.getElementById("skillPopupClose");
+    const storyPanelLabels = ["Fase 1", "Fase 2", "Fase 3"];
+
+    let currentSkillKey = "visual";
+    let currentSkillSlides = [];
+    let currentSlideIndex = 0;
+    let skillAutoSlideTimer = null;
+    const skillSlides = document.getElementById("skillSlides");
+
+    function stopSkillAutoSlide(){
+      if(skillAutoSlideTimer){
+        clearInterval(skillAutoSlideTimer);
+        skillAutoSlideTimer = null;
+      }
+    }
+
+    function startSkillAutoSlide(){
+      stopSkillAutoSlide();
+      if(!currentSkillSlides || currentSkillSlides.length <= 1) return;
+      skillAutoSlideTimer = setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % currentSkillSlides.length;
+        renderSkillSlides();
+        startSkillAutoSlide();
+      }, 3200);
+    }
+
+
+    function renderSkillSlides(){
+      if(!skillSlides) return;
+      if(!currentSkillSlides.length){
+        skillSlides.innerHTML = "";
+        return;
+      }
+      const slidesHtml = currentSkillSlides.map((slide, index) => `
+        <div class="skill-slide ${index === currentSlideIndex ? "active" : ""}">
+          <div class="story-frame">
+            <img src="assets/skill_stories/${currentSkillKey}.png" alt="${escapeHtml(skillPopupTitle.textContent || currentSkillKey)} storyboard ${index + 1}" class="story-image panel-${index + 1}" loading="lazy">
+            <div class="story-caption"><b>${storyPanelLabels[index] || ("Step " + (index + 1))}</b> · visual story</div>
+            <div class="slide-autoplay"><span></span></div>
+          </div>
+          <h4>${escapeHtml(slide.title)}</h4>
+          <p>${escapeHtml(slide.text)}</p>
+        </div>
+      `).join("");
+      const dotsHtml = currentSkillSlides.map((_, index) => `
+        <button class="slide-dot ${index === currentSlideIndex ? "active" : ""}" type="button" data-slide="${index}" aria-label="Vai alla slide ${index + 1}"></button>
+      `).join("");
+      skillSlides.innerHTML = `
+        ${slidesHtml}
+        <div class="slide-controls">
+          <button class="slide-btn" type="button" data-slide-prev>←</button>
+          <div class="slide-dots">${dotsHtml}</div>
+          <button class="slide-btn" type="button" data-slide-next>→</button>
+        </div>
+      `;
+      skillSlides.querySelector("[data-slide-prev]").addEventListener("click", event => {
+        event.stopPropagation();
+        currentSlideIndex = (currentSlideIndex - 1 + currentSkillSlides.length) % currentSkillSlides.length;
+        renderSkillSlides();
+        startSkillAutoSlide();
+      });
+      skillSlides.querySelector("[data-slide-next]").addEventListener("click", event => {
+        event.stopPropagation();
+        currentSlideIndex = (currentSlideIndex + 1) % currentSkillSlides.length;
+        renderSkillSlides();
+        startSkillAutoSlide();
+      });
+      skillSlides.querySelectorAll("[data-slide]").forEach(button => {
+        button.addEventListener("click", event => {
+          event.stopPropagation();
+          currentSlideIndex = Number(button.dataset.slide);
+          renderSkillSlides();
+          startSkillAutoSlide();
+        });
+      });
+    }
+
+
+    function openSkillPopup(key){
+      const item = skillDetails[key];
+      if(!item) return;
+      skillPopupKicker.textContent = item.kicker;
+      skillPopupTitle.textContent = item.title;
+      skillPopupText.textContent = item.text;
+      skillPopupList.innerHTML = item.bullets.map(point => `<li>${escapeHtml(point)}</li>`).join("");
+      currentSkillKey = key;
+      currentSkillSlides = item.slides || [];
+      currentSlideIndex = 0;
+      renderSkillSlides();
+      startSkillAutoSlide();
+      skillPopup.classList.add("show");
+      skillPopup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSkillPopup(){
+      stopSkillAutoSlide();
+      skillPopup.classList.remove("show");
+      skillPopup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-skill]").forEach(button => {
+      button.addEventListener("click", () => openSkillPopup(button.dataset.skill));
+    });
+
+    skillPopupClose.addEventListener("click", closeSkillPopup);
+    skillPopup.addEventListener("click", event => {
+      if(event.target === skillPopup || event.target.closest(".skill-popup-card")){
+        closeSkillPopup();
+      }
+    });
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape" && skillPopup.classList.contains("show")){
+        closeSkillPopup();
+      }
+    });
+
+
+
+    function setupEntranceAnimations(){
+      const revealSelectors = [
+        ".logo-floating",
+        ".nav",
+        ".badge",
+        "h1",
+        ".lead",
+        ".actions",
+        ".portrait-shell",
+        ".section-head",
+        ".skill",
+        ".work",
+        ".review-card",
+        ".footer-card"
+      ];
+
+      const elements = [];
+      revealSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => elements.push(el));
+      });
+
+      elements.forEach((el, index) => {
+        if(el.classList.contains("reveal-init")) return;
+        el.classList.add("reveal-init");
+        if(el.classList.contains("logo-floating") || el.classList.contains("section-head")){
+          el.classList.add("reveal-left");
+        }
+        if(el.classList.contains("portrait-shell")){
+          el.classList.add("reveal-right");
+        }
+        if(el.classList.contains("skill") || el.classList.contains("work") || el.classList.contains("review-card")){
+          el.classList.add("reveal-pop");
+        }
+        el.style.setProperty("--reveal-delay", Math.min(index * 45, 420) + "ms");
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("reveal-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold:.12, rootMargin:"0px 0px -40px 0px" });
+
+      elements.forEach(el => observer.observe(el));
+      requestAnimationFrame(() => {
+        document.querySelectorAll(".logo-floating,.nav").forEach(el => el.classList.add("reveal-in"));
+      });
+    }
+
+    function setupFirstClickAudio(){
+      const audio = document.getElementById("bgAudio");
+      const notice = document.getElementById("audioActivation");
+      if(!audio) return;
+
+      let tried = false;
+
+      function showNotice(message){
+        if(!notice) return;
+        notice.innerHTML = `<span></span> ${message}`;
+        notice.classList.add("show");
+        setTimeout(() => notice.classList.remove("show"), 3200);
+      }
+
+      async function startAudio(){
+        if(tried) return;
+        tried = true;
+
+        try{
+          audio.volume = 0.28;
+          await audio.play();
+          showNotice("Audio attivato");
+        }catch(error){
+          showNotice("Aggiungi assets/audio/imperial-march.mp3 per attivare l'audio");
+        }
+
+        window.removeEventListener("click", startAudio);
+        window.removeEventListener("touchstart", startAudio);
+        window.removeEventListener("keydown", startAudio);
+      }
+
+      window.addEventListener("click", startAudio, { once:true });
+      window.addEventListener("touchstart", startAudio, { once:true });
+      window.addEventListener("keydown", startAudio, { once:true });
+    }
+
+
+    setupEntranceAnimations();
+    setupFirstClickAudio();
     loadWorks();
   </script>
 </body>
