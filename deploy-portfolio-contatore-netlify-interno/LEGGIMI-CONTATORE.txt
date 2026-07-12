@@ -1,0 +1,21 @@
+CONTATORE ACCESSI GLOBALE - ISTRUZIONI IMPORTANTI
+
+Questa versione usa una Netlify Function e Netlify Blobs, quindi il numero è globale e rimane salvato tra i deploy.
+
+NON caricare questa cartella con il semplice trascinamento nella zona "Deploy manually": il drag-and-drop pubblica i file statici, ma non esegue l'installazione della dipendenza e la preparazione della Function.
+
+METODO CONSIGLIATO
+1. Carica tutti i file di questa cartella in un repository GitHub.
+2. In Netlify apri il progetto darbdesign.
+3. Vai in Project configuration > Build & deploy > Continuous deployment.
+4. Collega il repository GitHub.
+5. Imposta:
+   Build command: npm run build
+   Publish directory: .
+6. Avvia il deploy.
+7. Al termine verifica questo indirizzo:
+   https://darbdesign.netlify.app/.netlify/functions/visitor-counter
+   Deve mostrare un JSON simile a: {"count":0}
+8. Aprendo il sito, il numero nel footer aumenterà una volta per ogni nuova sessione del browser.
+
+Il contatore comincia da zero al primo deploy di questa versione.
