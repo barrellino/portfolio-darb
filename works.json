@@ -34,5 +34,23 @@
     "url": "https://ordiniius.netlify.app",
     "tag": "App",
     "description": "Applicazione web per gestione ordini e flussi operativi."
+  },
+  {
+    "title": "Calcolo Taglio Vetri",
+    "url": "https://dattola-cut-glasses.netlify.app/",
+    "tag": "Web App",
+    "description": "Applicazione per calcolare le misure di taglio del vetro in base al profilo scelto."
+  },
+  {
+    "title": "Dattola Stock Manager",
+    "url": "https://dattola-stock-manager.netlify.app/",
+    "tag": "Gestionale",
+    "description": "Software gestionale di magazzino per articoli, scorte, prelievi e controllo operativo."
+  },
+  {
+    "title": "RuneBoard",
+    "url": "https://runeboard.netlify.app/",
+    "tag": "Game",
+    "description": "Gioco strategico a turni che unisce meccaniche degli scacchi e delle carte."
   }
 ]
